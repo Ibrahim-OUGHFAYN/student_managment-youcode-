@@ -139,6 +139,23 @@ void delete(struct student tab[SIZE], char cin[50])
     }
 }
 
-void setNotesForStudent(struct student tab[SIZE], char cin[50]){
-    
+void afficherBulletin(struct student tab[SIZE], char cin[50])
+{
+    int i = getIndexByCin(tab,cin);
+    if (i == -1)
+    {
+        printf("student not found");
+    }
+    else
+    {
+        printf("%s-%s-%s of notes : ", tab[i].cin, tab[i].fname, tab[i].lname);
+
+        for (int j = 0; j < 5; j++)
+        {
+            printf("%f - ", tab[i].notes[j]);
+        }
+
+        printf(" de moyen : %f", tab[i].avg);
+        printf("\n");
+    }
 }

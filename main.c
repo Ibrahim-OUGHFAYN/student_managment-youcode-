@@ -11,7 +11,13 @@ void menu(struct student stdnts[SIZE])
         int ch;
         printf("\n=====================================================================\n");
         printf("\nchose a choice :\n");
-        printf("1-afficher tout les etudiant\n2-ajouter un etudiant\n3-modifier un etudiant\n4-suppriemer un etudiant\n5-moyern general\n6-exit");
+        printf("1-afficher tout les etudiant\n"
+               "2-ajouter un etudiant\n"
+               "3-modifier un etudiant\n"
+               "4-suppriemer un etudiant\n"
+               "5-moyern general\n"
+               "6-afficher bulltien d'un etudiant\n"
+               "7-exit");
         printf("\n=====================================================================\n");
         printf("type the number of your choise here:");
         scanf("%d", &ch);
@@ -73,7 +79,23 @@ void menu(struct student stdnts[SIZE])
             delete (stdnts, cin);
             continue;
         }
+        case 5:
+        {
+            char c;
+            printf("\nvoila le moyen general: %f", general_avg(stdnts));
+            continue;
+        }
+
         case 6:
+        {
+            char cin[50];
+            printf("donner moi le cin de l'etudiant");
+            scanf(" %[^\n]s", cin);
+            afficherBulletin(stdnts, cin);
+            continue;
+        }
+        case 7:
+        {
             char c;
             printf("you want realy to exit the program,your data will not save \n-yes,i want to exit(y) \n-no,i dont want to exit(n)\n=>");
             scanf(" %c", &c);
@@ -85,12 +107,8 @@ void menu(struct student stdnts[SIZE])
             {
                 continue;
             }
-        case 5:
-        {
-            char c;
-            printf("\nvoila le moyen general: %f",general_avg(stdnts));
-            continue;
         }
+
         default:
             printf("choice not found!!\n");
             continue;
